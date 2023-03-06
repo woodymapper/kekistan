@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\PlayerController.cs" />
+    <Compile Include="Assets\zombieScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
