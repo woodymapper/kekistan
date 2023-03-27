@@ -48,24 +48,26 @@ public class PlayerController : MonoBehaviour
         Destroy(Bullet, 10);
 
     }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
 
-            --hp;
-            if (hp <= 0) { Die(); }
-            hpScrollBar.size = hpScrollBar.size - 0.1f;
+            hp--;
+            if (hp <= 0) Die();
+            hpScrollBar.size = hp / 10;
             Vector3 pushVector = collision.gameObject.transform.position - transform.position;
-            collision.gameObject.GetComponent<Rigidbody>().AddForce(pushVector*5, ForceMode.Impulse);
-
+            collision.gameObject.GetComponent<Rigidbody>().AddForce(pushVector.normalized * 5, ForceMode.Impulse);
         }
     }
-
     void Die()
     {
+        GetComponent<BoxCollider>().enabled = false;
+        transform.Translate(Vector3.up);
+        transform.Rotate(Vector3.right * -90);
 
-     
+        //Time.timeScale = 0;
     }
 
 

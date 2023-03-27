@@ -17,6 +17,6 @@ public class zombieScript : MonoBehaviour
         transform.LookAt(Player.transform.position);
         //Vector3 playerDirection = transform.position - Player.transform.position;
 
-        transform.Translate(transform.forward * Time.deltaTime);
+        transform.Translate(Vector3.forward * Time.deltaTime);
     }
 }
